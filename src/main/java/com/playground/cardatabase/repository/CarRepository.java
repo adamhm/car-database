@@ -3,6 +3,13 @@ package com.playground.cardatabase.repository;
 import com.playground.cardatabase.domain.Car;
 import org.springframework.data.repository.CrudRepository;
 
-public interface CarRepository extends CrudRepository<Car, Long> {
+import java.util.List;
 
+public interface CarRepository extends CrudRepository<Car, Long> {
+    
+    List<Car> findByBrand(String brand);
+    
+    List<Car> findByColor(String color);
+    
+    List<Car> findByYear(int year);
 }
