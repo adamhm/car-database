@@ -3,10 +3,8 @@ package com.playground.cardatabase.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,6 +17,9 @@ public class Owner {
     
     private String firstName;
     private String lastName;
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    private List<Car> cars;
     
     public Owner() {
     }
